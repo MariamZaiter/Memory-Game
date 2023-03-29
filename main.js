@@ -69,17 +69,22 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
 
     firstBlock.classList.add("has-match");
     secondBlock.classList.add("has-match");
-
-    document.getElementById("success").play();
+    setTimeout(() => {
+      document.getElementById("success").play();
+    }, 500);
+   
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
     setTimeout(() => {
       firstBlock.classList.remove("is-flipped");
       secondBlock.classList.remove("is-flipped");
     }, duration);
+    setTimeout(() => {
+      document.getElementById("failed").play();
+    }, 500);
   }
-
-  document.getElementById("failed").play();
+  
+  
 }
 
 //shuffle function
